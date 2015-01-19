@@ -8,9 +8,17 @@ function Command() {
         return $('#model_name').val();
     }
     this.createArgument = function() {
-        var name = $('#name').val();
-        var type = $('#type').val();
-        return name + ':' + type;
+        var name = [];
+        var type = [];
+        $('.name').each(function(i,e){
+            name.push($(e).val());
+        });
+        $('.type').each(function(i,e){
+            type.push($(e).val());
+        });
+        return name.map(function(num){
+            return num + ':' + type;
+        });
     }
     this.create = function() {
         return this.rails + ' ' + this.method + ' ' + this.createModelName() + ' ' + this.generateType() + ' ' + this.createArgument();
