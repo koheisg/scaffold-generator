@@ -1,3 +1,5 @@
+"use strict";
+
 function Command() {
     this.rails = 'bin/rails';
     this.method = 'g';
@@ -10,18 +12,18 @@ function Command() {
     this.createArgument = function() {
         var name = [];
         var type = [];
-        $('.name').each(function(i,e){
+        $('.name').each(function(i, e){
             name.push($(e).val());
         });
-        $('.type').each(function(i,e){
+        $('.type').each(function(i, e){
             type.push($(e).val());
         });
-        return name.map(function(num){
-            return num + ':' + type;
-        });
+        return name.map(function(num, i){
+            return ' \\\n' + num + ':' + type[i];
+        }).join(' ');
     }
     this.create = function() {
-        return this.rails + ' ' + this.method + ' ' + this.createModelName() + ' ' + this.generateType() + ' ' + this.createArgument();
+        return this.rails + ' ' + this.method + ' ' + this.generateType() + ' ' + this.createModelName() + ' ' + this.createArgument();
     }
 }
 
@@ -32,19 +34,25 @@ function appendForm() {
 }
 
 function writeText() {
+    var result = $('#result');
     var command = new Command();
-    $('#result').val(command.create());
+    result.val('');
+    result.val(command.create());
 }
 
-$('#argument, #model_name, #type, #name').on('change', function(){
+$(document).on('click', '.plus', function(){
+    appendForm();
+});
+
+$('#argument, #model_name').on('change', function(){
+    writeText();
+});
+
+$(document).on('change', '.name, .type', function(){
     writeText();
 });
 
 (function () {
     appendForm();
     writeText();
-}())
-
-$(document).on('click', '.plus', function(){
-    appendForm();
-});
+}());

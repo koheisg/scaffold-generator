@@ -22,34 +22,38 @@
     <body>
         <div class="container">
             <h1>scaffold generator</h1>
+            <div class="col-md-8">
+                <h2>what do you wanna generate?</h2>
 
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label for="argument" class="col-sm-2 control-label">scaffold / model</label>
-                    <div class="col-sm-10">
-                        <select name="name" id="argument" class="form-control">
-                            <option value="model">model</option>
-                            <option value="scaffold">scaffold</option>
-                        </select>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="argument" class="col-sm-2 control-label">scaffold / model</label>
+                        <div class="col-sm-10">
+                            <select name="name" id="argument" class="form-control">
+                                <option value="model">model</option>
+                                <option value="scaffold">scaffold</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="model_name" class="col-sm-2 control-label">model name</label>
-                    <div class="col-sm-10">
-                        <input id="model_name" type="text" class="form-control" placeholder="Text input" />
+                    <div class="form-group">
+                        <label for="model_name" class="col-sm-2 control-label">model name</label>
+                        <div class="col-sm-10">
+                            <input id="model_name" type="text" class="form-control" placeholder="Text input" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">field name</label>
-                    <div class="col-sm-10">
-                        <ul class="list-unstyled" id="field"></ul>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">field name</label>
+                        <div class="col-sm-10">
+                            <ul class="list-unstyled" id="field"></ul>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
 
-            <div>
+            <div class="col-md-4">
+                <h2>generated command</h2>
                 <textarea id="result" class="form-control" rows="3"></textarea>
             </div>
         </div>
@@ -58,8 +62,8 @@
         <script type="text/javascript" src="./bower_components/underscore/underscore-min.js"></script>
         <script type="text/template" id="greeting-template">
             <li class="form-inline">
-                <input type="text" class="form-control name" placeholder="Text input" />
-                <select name="name" class="form-control type">
+                <input type="text" class="name form-control" placeholder="Text input" />
+                <select name="name" class="type form-control">
                     <option value="primary_key">primary_key</option>
                     <option value="string">string</option>
                     <option value="text">text</option>
