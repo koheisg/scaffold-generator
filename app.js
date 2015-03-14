@@ -33,6 +33,17 @@ function appendForm() {
     $("#field").append(_.template(template));
 }
 
+function removeForm(target) {
+    target.remove();
+}
+
+function removeText() {
+    var result = $('#result');
+    var command = new Command();
+    result.val('');
+    result.val(command.create());
+}
+
 function writeText() {
     var result = $('#result');
     var command = new Command();
@@ -42,6 +53,11 @@ function writeText() {
 
 $(document).on('click', '.plus', function(){
     appendForm();
+});
+
+$(document).on('click', '.minous', function(){
+    removeForm($(this).parent());
+    removeText();
 });
 
 $('#argument, #model_name').on('change', function(){
