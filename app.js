@@ -1,5 +1,8 @@
 "use strict";
 
+var $ = require('jquery');
+var _ = require('underscore');
+
 function Command() {
     this.rails = 'bin/rails';
     this.method = 'g';
