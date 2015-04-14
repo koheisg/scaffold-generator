@@ -4,7 +4,6 @@
   "description": "In browser, Scaffld Generater generate scaffold command of ruby on rails.",
   "main": "app.js",
   "dependencies": {
-    "debowerify": "^1.2.0",
     "jquery": "^2.1.3",
     "underscore": "^1.8.3"
   },
