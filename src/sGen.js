@@ -7,19 +7,6 @@ var sGen = sGen || {};
 
 sGen.Command = require('./sGen/command.js');
 sGen.form = require('./sGen/form.js');
-
-sGen.removeText = function removeText() {
-    var result = $('#result');
-    var command = new sGen.Command();
-    result.val('');
-    result.val(command.create());
-}
-
-sGen.writeText = function writeText() {
-    var result = $('#result');
-    var command = new sGen.Command();
-    result.val('');
-    result.val(command.create());
-}
+sGen.Writer = require('./sGen/writer.js')
 
 module.exports = sGen;

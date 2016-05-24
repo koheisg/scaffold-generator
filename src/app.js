@@ -3,7 +3,8 @@ const sGen = require('./sGen');
 
 (function initialize() {
   sGen.form.append();
-  sGen.writeText();
+  var writer = new sGen.Writer(new sGen.Command(), $('#result'));
+  writer.write();
 
   $(document).on('click', '.plus', function clickPlusCallback() {
       sGen.form.append();
@@ -11,14 +12,17 @@ const sGen = require('./sGen');
 
   $(document).on('click', '.minous', function clickMinusCallback() {
       sGen.form.remove($(this).parent());
-      sGen.removeText();
+      var writer = new sGen.Writer(new sGen.Command(), $('#result'));
+      writer.write();
   });
 
   $('#argument, #model_name').on('change', function changeFromCallback() {
-      sGen.writeText();
+      var writer = new sGen.Writer(new sGen.Command(), $('#result'));
+      writer.write();
   });
 
   $(document).on('change', '.name, .type', function changeFromCallback() {
-      sGen.writeText();
+      var writer = new sGen.Writer(new sGen.Command(), $('#result'));
+      writer.write();
   });
 }());
