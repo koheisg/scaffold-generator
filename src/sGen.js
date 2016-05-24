@@ -6,15 +6,7 @@ var _ = require('underscore');
 var sGen = sGen || {};
 
 sGen.Command = require('./sGen/command.js');
-
-sGen.appendForm = function appendForm() {
-    var template = $("#greeting-template").text();
-    $("#field").append(_.template(template));
-}
-
-sGen.removeForm = function removeForm(target) {
-    target.remove();
-}
+sGen.form = require('./sGen/form.js');
 
 sGen.removeText = function removeText() {
     var result = $('#result');

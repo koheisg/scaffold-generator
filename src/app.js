@@ -2,15 +2,15 @@ const $ = require('jquery');
 const sGen = require('./sGen');
 
 (function initialize() {
-  sGen.appendForm();
+  sGen.form.append();
   sGen.writeText();
 
   $(document).on('click', '.plus', function clickPlusCallback() {
-      sGen.appendForm();
+      sGen.form.append();
   });
 
   $(document).on('click', '.minous', function clickMinusCallback() {
-      sGen.removeForm($(this).parent());
+      sGen.form.remove($(this).parent());
       sGen.removeText();
   });
 
