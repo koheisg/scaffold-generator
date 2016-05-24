@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "babelify": "^7.3.0",
+    "browser-sync": "^2.12.8",
+    "browserify": "^13.0.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.0",
     "eslint-plugin-jsx-a11y": "^1.2.2",
@@ -18,7 +20,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify -t babelify ./src/app.js -o ./dist/build.js"
+    "build": "browserify ./src/app.js > ./dist/build.js",
+    "js": "watchify -t babelify ./src/app.js -d -o ./dist/build.js -v",
+    "lint": "eslint ./src/",
+    "watch": "watchify 'npm run lint' ./src/",
+    "serve": "browser-sync start --server ./ --files ./dist/**/* --server dist",
+    "start": "npm run watch & npm run js & npm run serve"
   },
   "repository": {
     "type": "git",
