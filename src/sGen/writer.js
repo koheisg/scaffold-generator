@@ -1,17 +1,12 @@
-"use strict";
+const sGen = {};
 
-var $ = require('jquery');
-var _ = require('underscore');
+sGen.Writer = function Writer(command, result) {
+  this.command = command;
+  this.result = result;
+};
 
-var sGen = sGen || {};
-
-sGen.Writer = function(command, result) {
-    this.command = command;
-    this.result = result
-}
-
-sGen.Writer.prototype.write = function() {
-    this.result.val(this.command.create());
-}
+sGen.Writer.prototype.write = function write() {
+  this.result.val(this.command.create());
+};
 
 module.exports = sGen.Writer;

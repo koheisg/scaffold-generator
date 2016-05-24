@@ -1,18 +1,16 @@
-"use strict";
+const $ = require('jquery');
+const _ = require('underscore');
 
-var $ = require('jquery');
-var _ = require('underscore');
-
-var sGen = sGen || {};
+const sGen = {};
 
 sGen.form = {
-    append: function() {
-        var template = $("#greeting-template").text();
-        $("#field").append(_.template(template));
-    },
-    remove: function(target) {
-        target.remove();
-    }
-}
+  append: function append() {
+    const template = $('#greeting-template').text();
+    $('#field').append(_.template(template));
+  },
+  remove: function remove(target) {
+    target.remove();
+  },
+};
 
 module.exports = sGen.form;

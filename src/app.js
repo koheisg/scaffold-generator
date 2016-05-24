@@ -3,26 +3,23 @@ const sGen = require('./sGen');
 
 (function initialize() {
   sGen.form.append();
-  var writer = new sGen.Writer(new sGen.Command(), $('#result'));
+  const writer = new sGen.Writer(new sGen.Command(), $('#result'));
   writer.write();
 
   $(document).on('click', '.plus', function clickPlusCallback() {
-      sGen.form.append();
+    sGen.form.append();
   });
 
   $(document).on('click', '.minous', function clickMinusCallback() {
-      sGen.form.remove($(this).parent());
-      var writer = new sGen.Writer(new sGen.Command(), $('#result'));
-      writer.write();
+    sGen.form.remove($(this).parent());
+    writer.write();
   });
 
   $('#argument, #model_name').on('change', function changeFromCallback() {
-      var writer = new sGen.Writer(new sGen.Command(), $('#result'));
-      writer.write();
+    writer.write();
   });
 
   $(document).on('change', '.name, .type', function changeFromCallback() {
-      var writer = new sGen.Writer(new sGen.Command(), $('#result'));
-      writer.write();
+    writer.write();
   });
 }());
