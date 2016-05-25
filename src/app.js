@@ -10,7 +10,8 @@ const sGen = require('./sGen');
   writer.write();
 
   $(document).on('click', '.plus', function clickPlusCallback() {
-    sGen.form.append($('#field'), template);
+    target = $(this).parent();
+    sGen.form.appendAfter(target, template);
   });
 
   $(document).on('click', '.minous', function clickMinusCallback() {
