@@ -15,15 +15,25 @@ sGen.Command.prototype.createModelName = function createModelName() {
   return $('#model_name').val();
 };
 
-sGen.Command.prototype.createArgument = function createArgument() {
-  const name = [];
-  const type = [];
+sGen.Command.prototype.getNames = function getNames() {
+  const names = [];
   $('.name').each(function callback(i, e) {
-    name.push($(e).val());
+    names.push($(e).val());
   });
+  return names;
+}
+
+sGen.Command.prototype.getTypes = function getTypes() {
+  const types = [];
   $('.type').each(function callback(i, e) {
-    type.push($(e).val());
+    types.push($(e).val());
   });
+  return types;
+}
+
+sGen.Command.prototype.createArgument = function createArgument() {
+  const name = this.getNames();
+  const type = this.getTypes();
   return name.map(function callback(num, i) {
     const entity = ` \\\n${num}:${type[i]}`;
     return entity;
