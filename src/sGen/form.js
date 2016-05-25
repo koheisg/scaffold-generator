@@ -1,10 +1,8 @@
-const $ = require('jquery');
-
 const sGen = {};
 
 sGen.form = {
-  append: function append(template) {
-    $('#field').append(template);
+  append: function append(target, template) {
+    target.append(template);
   },
   remove: function remove(target) {
     target.remove();

@@ -4,12 +4,13 @@ const sGen = require('./sGen');
 
 (function app() {
   const template = _.template($('#greeting-template').text());
-  sGen.form.append(template);
+  sGen.form.append($('#field'), template);
+
   const writer = new sGen.Writer(new sGen.Command(), $('#result'));
   writer.write();
 
   $(document).on('click', '.plus', function clickPlusCallback() {
-    sGen.form.append(template);
+    sGen.form.append($('#field'), template);
   });
 
   $(document).on('click', '.minous', function clickMinusCallback() {
