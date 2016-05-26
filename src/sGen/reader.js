@@ -3,6 +3,9 @@ const $ = require('jquery');
 const sGen = {};
 
 sGen.reader = {
+    readWhichRails: function readWhichRails() {
+        return $('#which_rails option:selected').val();
+    },
     readObjectType: function readObjectType() {
         return $('#argument option:selected').val();
     },
