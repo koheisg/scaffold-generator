@@ -28,7 +28,7 @@
     "lint": "eslint ./src/",
     "watch": "watch 'npm run lint' ./src/",
     "serve": "browser-sync start --server ./ --files ./dist/**/* --server dist",
-    "start": "npm run watch & npm run js & npm run serve"
+    "start": "npm run watch & npm run js & npm run css & npm run serve"
   },
   "repository": {
     "type": "git",
