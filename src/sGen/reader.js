@@ -3,6 +3,12 @@ const $ = require('jquery');
 const sGen = {};
 
 sGen.reader = {
+    readObjectType: function readObjectType() {
+        return $('#argument option:selected').val();
+    },
+    readObjectName: function readObjectName() {
+        return $('#model_name').val();
+    },
     readTypes: function readTypes() {
         const types = [];
         $('.type').each(function callback(i, e) {

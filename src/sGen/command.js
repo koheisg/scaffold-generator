@@ -1,5 +1,3 @@
-const $ = require('jquery');
-
 const sGen = {};
 
 sGen.reader = require('./reader.js');
@@ -10,11 +8,11 @@ sGen.Command = function Command() {
 };
 
 sGen.Command.prototype.generateType = function generateType() {
-  return $('#argument option:selected').val();
+  return sGen.reader.readObjectType();
 };
 
 sGen.Command.prototype.createModelName = function createModelName() {
-  return $('#model_name').val();
+  return sGen.reader.readObjectName();
 };
 
 
