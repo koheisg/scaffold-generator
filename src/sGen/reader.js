@@ -6,6 +6,9 @@ sGen.reader = {
     readWhichRails: function readWhichRails() {
         return $('#which_rails option:selected').val();
     },
+    readMethodType: function readMethodType() {
+        return $('#method option:selected').val();
+    },
     readObjectType: function readObjectType() {
         return $('#argument option:selected').val();
     },

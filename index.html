@@ -18,12 +18,22 @@
 
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label for="argument" class="col-sm-2 control-label">which rails</label>
+                        <label for="which_rails" class="col-sm-2 control-label">which rails</label>
                         <div class="col-sm-4">
                             <select name="name" id="which_rails" class="form-control">
                                 <option value="rails">rails</option>
                                 <option value="bin/rails">bin/rails</option>
                                 <option value="bin/bundle exec rails">bin/bundle exec rails</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="method" class="col-sm-2 control-label">method</label>
+                        <div class="col-sm-4">
+                            <select name="name" id="method" class="form-control">
+                                <option value="g">generate</option>
+                                <option value="d">destroy</option>
                             </select>
                         </div>
                     </div>

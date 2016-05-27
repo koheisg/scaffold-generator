@@ -19,7 +19,7 @@ const sGen = require('./sGen');
     writer.write();
   });
 
-  $('#which_rails, #argument, #model_name').on('change', function changeFromCallback() {
+  $('#method, #which_rails, #argument, #model_name').on('change', function changeFromCallback() {
     writer.write();
   });
 

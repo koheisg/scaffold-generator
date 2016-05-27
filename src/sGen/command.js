@@ -3,12 +3,14 @@ const sGen = {};
 sGen.reader = require('./reader.js');
 
 sGen.Command = function Command() {
-  this.rails = 'bin/rails';
-  this.method = 'g';
 };
 
 sGen.Command.prototype.generateRails = function generateRails() {
   return sGen.reader.readWhichRails();
+}
+
+sGen.Command.prototype.getMethodType = function getMethodType() {
+  return sGen.reader.readMethodType();
 }
 
 sGen.Command.prototype.generateType = function generateType() {
@@ -31,7 +33,7 @@ sGen.Command.prototype.createArgument = function createArgument() {
 };
 
 sGen.Command.prototype.create = function create() {
-  return `${this.generateRails()} ${this.method} `
+  return `${this.generateRails()} ${this.getMethodType()} `
     + `${this.generateType()} ${this.createModelName()} ${this.createArgument()}`;
 };
 
