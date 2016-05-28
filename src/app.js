@@ -1,9 +1,10 @@
 const $ = require('jquery');
 const _ = require('underscore');
 const sGen = require('./sGen');
+const entity_template = require('../templates/entity.html');
 
 (function app() {
-  const template = _.template($('#greeting-template').text());
+  const template = _.template(entity_template);
   sGen.form.append($('#field'), template);
 
   const writer = new sGen.Writer(new sGen.Command(), $('#result'));
