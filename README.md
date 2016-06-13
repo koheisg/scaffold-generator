@@ -13,5 +13,6 @@ http://koheisg.dreamin.cc/scaffold-generator/
 
 ```
 $ git clone git@github.com:koheisg/scaffold-generator.git && cd ./scaffold-generator
+$ npm install
 $ npm start
 ```
