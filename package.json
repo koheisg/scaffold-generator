@@ -27,7 +27,6 @@
     "css": "node-sass --include-path ./node_modules/bootstrap-sass/assets/stylesheets/ sass/application.scss > dist/build.css",
     "js": "watchify -t babelify ./src/app.js -t stringify ./templates/*.html -d -o ./dist/build.js -v",
     "lint": "eslint ./src/",
-    "watch": "watch 'npm run lint' ./src/",
     "serve": "browser-sync start --server ./ --files ./dist/**/* --server dist",
     "start": "npm run watch & npm run js & npm run css & npm run serve"
   },
