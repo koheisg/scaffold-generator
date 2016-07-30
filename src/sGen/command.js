@@ -2,8 +2,7 @@ const sGen = {};
 
 sGen.reader = require('./reader.js');
 
-sGen.Command = function Command() {
-};
+sGen.Command = class Command {};
 
 sGen.Command.prototype.generateRails = function generateRails() {
   return sGen.reader.readWhichRails();
