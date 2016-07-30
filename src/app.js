@@ -2,6 +2,7 @@ import $ from 'jquery';
 import * as sGen from './sGen/sGen';
 
 (() => {
+  sGen.initialize.render();
   sGen.form.render();
 
   const writer = new sGen.Writer(new sGen.Command(), $('#result'));

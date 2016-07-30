@@ -9,65 +9,7 @@
 
     <link rel="stylesheet" href="./dist/build.css">
   </head>
-  <body>
-    <a href="https://github.com/koheisg/scaffold-generator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
-    <div class="container">
-      <h1>scaffold generator</h1>
-      <div class="col-md-8">
-        <h2></h2>
-
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label for="which_rails" class="col-sm-2 control-label">which rails</label>
-            <div class="col-sm-4">
-              <select name="name" id="which_rails" class="form-control">
-                <option value="rails">rails</option>
-                <option value="bin/rails">bin/rails</option>
-                <option value="bin/bundle exec rails">bin/bundle exec rails</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="method" class="col-sm-2 control-label">method</label>
-            <div class="col-sm-4">
-              <select name="name" id="method" class="form-control">
-                <option value="g">generate</option>
-                <option value="d">destroy</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="argument" class="col-sm-2 control-label">command</label>
-            <div class="col-sm-4">
-              <select name="name" id="argument" class="form-control">
-                <option value="model">model</option>
-                <option value="scaffold">scaffold</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="model_name" class="col-sm-2 control-label">model</label>
-            <div class="col-sm-4">
-              <input id="model_name" type="text" class="form-control" placeholder="Text input" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="col-sm-2 control-label">field</label>
-            <div class="col-sm-10">
-              <ul class="list-unstyled" id="field"></ul>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <div class="col-md-4">
-        <textarea id="result" class="form-control" rows="3"></textarea>
-      </div>
-    </div>
+  <body id="body">
     <script type="text/javascript" src="./dist/build.js"></script>
   </body>
 </html>
