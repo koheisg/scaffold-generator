@@ -1,8 +1,8 @@
-import reader from './reader.js'
+import reader from './reader.js';
 
 export default class Command {
   constructor() {
-    this.reader = reader
+    this.reader = reader;
   }
 
   generateRails() {
@@ -26,7 +26,7 @@ export default class Command {
     const name = this.reader.readNames();
     const type = this.reader.readTypes();
 
-    return name.map(function callback(num, i) {
+    return name.map((num, i) => {
       const entity = ` \\\n${num}:${type[i]}`;
       return entity;
     }).join(' ');
@@ -36,4 +36,4 @@ export default class Command {
     return `${this.generateRails()} ${this.getMethodType()} `
     + `${this.generateType()} ${this.createModelName()} ${this.createArgument()}`;
   }
-};
+}

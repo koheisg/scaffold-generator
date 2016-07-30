@@ -1,11 +1,11 @@
-import $ from 'jquery'
-import _ from 'underscore'
+import $ from 'jquery';
+import _ from 'underscore';
 
-const entity_template = require('../../templates/entity.html');
+const entityTemplate = require('../../templates/entity.html');
 
 export default {
   template: function template() {
-    return _.template(entity_template);
+    return _.template(entityTemplate);
   },
   render: function render() {
     this.append($('#field'), this.template());

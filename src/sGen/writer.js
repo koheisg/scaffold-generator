@@ -5,5 +5,5 @@ export default class Writer {
   }
   write() {
     this.result.val(this.command.create());
-  };
-};
+  }
+}

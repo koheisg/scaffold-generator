@@ -1,5 +1,5 @@
-import $ from "jquery";
-import * as sGen from "./sGen/sGen";
+import $ from 'jquery';
+import * as sGen from './sGen/sGen';
 
 (() => {
   sGen.form.render();
