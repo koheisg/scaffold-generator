@@ -1,14 +1,9 @@
-const sGen = {};
-
-sGen.Writer = class Writer {
-    constructor(command, result) {
-        this.command = command;
-        this.result = result;
-    }
+export default class Writer {
+  constructor(command, result) {
+    this.command = command;
+    this.result = result;
+  }
+  write() {
+    this.result.val(this.command.create());
+  };
 };
-
-sGen.Writer.prototype.write = function write() {
-  this.result.val(this.command.create());
-};
-
-module.exports = sGen.Writer;

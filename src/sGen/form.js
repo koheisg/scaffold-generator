@@ -1,11 +1,9 @@
-const sGen = {};
-
-const $ = require('jquery');
-const _ = require('underscore');
+import $ from 'jquery'
+import _ from 'underscore'
 
 const entity_template = require('../../templates/entity.html');
 
-sGen.form = {
+export default {
   template: function template() {
     return _.template(entity_template);
   },
@@ -22,5 +20,3 @@ sGen.form = {
     target.remove();
   },
 };
-
-module.exports = sGen.form;

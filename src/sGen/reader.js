@@ -1,34 +1,30 @@
-const $ = require('jquery');
+import $ from 'jquery';
 
-const sGen = {};
-
-sGen.reader = {
-    readWhichRails: function readWhichRails() {
-        return $('#which_rails option:selected').val();
-    },
-    readMethodType: function readMethodType() {
-        return $('#method option:selected').val();
-    },
-    readObjectType: function readObjectType() {
-        return $('#argument option:selected').val();
-    },
-    readObjectName: function readObjectName() {
-        return $('#model_name').val();
-    },
-    readTypes: function readTypes() {
-        const types = [];
-        $('.type').each(function callback(i, e) {
-            types.push($(e).val());
-        });
-        return types;
-    },
-    readNames: function readNames() {
-        const names = [];
-        $('.name').each(function callback(i, e) {
-            names.push($(e).val());
-        });
-        return names;
-    },
+export default {
+  readWhichRails: function readWhichRails() {
+    return $('#which_rails option:selected').val();
+  },
+  readMethodType: function readMethodType() {
+    return $('#method option:selected').val();
+  },
+  readObjectType: function readObjectType() {
+    return $('#argument option:selected').val();
+  },
+  readObjectName: function readObjectName() {
+    return $('#model_name').val();
+  },
+  readTypes: function readTypes() {
+    const types = [];
+    $('.type').each(function callback(i, e) {
+      types.push($(e).val());
+    });
+    return types;
+  },
+  readNames: function readNames() {
+    const names = [];
+    $('.name').each(function callback(i, e) {
+      names.push($(e).val());
+    });
+    return names;
+  },
 }
-
-module.exports = sGen.reader;

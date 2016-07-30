@@ -1,39 +1,39 @@
-const sGen = {};
+import reader from './reader.js'
 
-sGen.reader = require('./reader.js');
+export default class Command {
+  constructor() {
+    this.reader = reader
+  }
 
-sGen.Command = class Command {};
+  generateRails() {
+    return this.reader.readWhichRails();
+  }
 
-sGen.Command.prototype.generateRails = function generateRails() {
-  return sGen.reader.readWhichRails();
-}
+  getMethodType() {
+    return this.reader.readMethodType();
+  }
 
-sGen.Command.prototype.getMethodType = function getMethodType() {
-  return sGen.reader.readMethodType();
-}
+  generateType() {
+    return this.reader.readObjectType();
+  }
 
-sGen.Command.prototype.generateType = function generateType() {
-  return sGen.reader.readObjectType();
-};
-
-sGen.Command.prototype.createModelName = function createModelName() {
-  return sGen.reader.readObjectName();
-};
+  createModelName() {
+    return this.reader.readObjectName();
+  }
 
 
-sGen.Command.prototype.createArgument = function createArgument() {
-  const name = sGen.reader.readNames();
-  const type = sGen.reader.readTypes();
+  createArgument() {
+    const name = this.reader.readNames();
+    const type = this.reader.readTypes();
 
-  return name.map(function callback(num, i) {
-    const entity = ` \\\n${num}:${type[i]}`;
-    return entity;
-  }).join(' ');
-};
+    return name.map(function callback(num, i) {
+      const entity = ` \\\n${num}:${type[i]}`;
+      return entity;
+    }).join(' ');
+  }
 
-sGen.Command.prototype.create = function create() {
-  return `${this.generateRails()} ${this.getMethodType()} `
+  create() {
+    return `${this.generateRails()} ${this.getMethodType()} `
     + `${this.generateType()} ${this.createModelName()} ${this.createArgument()}`;
+  }
 };
-
-module.exports = sGen.Command;
