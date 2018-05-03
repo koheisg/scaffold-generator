@@ -1,4 +1,6 @@
 # scaffold-generator
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/koheisg/scaffold-generator.svg)](https://greenkeeper.io/)
 this application to generate scaffold command for ruby on rails
 
 ## What's this?
