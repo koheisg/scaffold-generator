@@ -6,7 +6,6 @@
   "dependencies": {
     "eslint": "^2.10.2",
     "jquery": "^3.3.1",
-    "node-sass": "^3.7.0",
     "stringify": "^5.1.0",
     "underscore": "^1.8.3"
   },
