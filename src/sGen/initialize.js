@@ -1,4 +1,4 @@
-const initializeTemplate = require('../../templates/initialize.html');
+const initializeTemplate = require('./views/initialize.html');
 
 export default {
   render: function render() {

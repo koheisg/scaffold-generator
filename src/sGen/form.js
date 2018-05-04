@@ -1,4 +1,4 @@
-const entityTemplate = require('../../templates/entity.html');
+const entityTemplate = require('./views/entity.html');
 
 export default {
   render: function render() {

@@ -21,7 +21,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "js": "watchify -t babelify ./src/app.js -t stringify ./templates/*.html -d -o ./dist/build.js -v",
+    "js": "watchify -t babelify ./src/app.js -t stringify ./src/sGen/views/*.html -d -o ./dist/build.js -v",
     "lint": "eslint ./src/",
     "watch": "watch 'npm run lint' ./src/",
     "serve": "browser-sync start --server ./ --files ./dist/**/* --server dist",
