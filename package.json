@@ -5,9 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "eslint": "^2.10.2",
-    "jquery": "^3.3.1",
-    "stringify": "^5.1.0",
-    "underscore": "^1.8.3"
+    "stringify": "^5.1.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",

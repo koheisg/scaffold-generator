@@ -1,30 +1,36 @@
-import $ from 'jquery';
-
 export default {
   readWhichRails: function readWhichRails() {
-    return $('#which_rails option:selected').val();
+    return document.querySelector('#which_rails option:checked').value;
   },
   readMethodType: function readMethodType() {
-    return $('#method option:selected').val();
+    return document.querySelector('#method option:checked').value;
   },
   readObjectType: function readObjectType() {
-    return $('#argument option:selected').val();
+    return document.querySelector('#argument option:checked').value;
   },
   readObjectName: function readObjectName() {
-    return $('#model_name').val();
+    return document.querySelector('#model_name').value;
   },
   readTypes: function readTypes() {
     const types = [];
-    $('.type').each((i, e) => {
-      types.push($(e).val());
-    });
+    const elements = document.querySelectorAll('.type');
+    const num = elements.length;
+
+    for (let i = 0; i < num; i++) {
+      const element = elements[i];
+      types.push(element.value);
+    }
     return types;
   },
   readNames: function readNames() {
     const names = [];
-    $('.name').each((i, e) => {
-      names.push($(e).val());
-    });
+    const elements = document.querySelectorAll('.name');
+    const num = elements.length;
+
+    for (let i = 0; i < num; i++) {
+      const element = elements[i];
+      names.push(element.value);
+    }
     return names;
   },
 };

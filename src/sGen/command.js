@@ -21,7 +21,6 @@ export default class Command {
     return this.reader.readObjectName();
   }
 
-
   createArgument() {
     const name = this.reader.readNames();
     const type = this.reader.readTypes();

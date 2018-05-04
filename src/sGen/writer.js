@@ -4,6 +4,6 @@ export default class Writer {
     this.result = result;
   }
   write() {
-    this.result.val(this.command.create());
+    this.result.value = this.command.create();
   }
 }
