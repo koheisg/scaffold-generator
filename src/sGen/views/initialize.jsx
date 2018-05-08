@@ -1,5 +1,3 @@
-import * as sGen from '../../sGen/sGen';
-
 import React, { Component  } from 'react';
 import ReactDOM from 'react-dom';
 import Entities from './entities.jsx'
