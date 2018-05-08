@@ -7,8 +7,7 @@
     "babel-preset-react": "^6.24.1",
     "eslint": "^2.10.2",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "stringify": "^5.1.0"
+    "react-dom": "^16.3.2"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
@@ -24,7 +23,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "js": "watchify -t babelify ./src/app.js -t stringify ./src/sGen/views/*.html -d -o ./dist/build.js -v",
+    "js": "watchify -t babelify ./src/app.js -d -o ./dist/build.js -v",
     "lint": "eslint ./src/",
     "watch": "watch 'npm run lint' ./src/",
     "serve": "browser-sync start --server ./ --files ./dist/**/* --server dist",
