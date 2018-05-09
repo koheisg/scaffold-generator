@@ -36,8 +36,6 @@ export default class Initialize extends Component {
   }
 
   write() {
-    const command = new sGen.Command();
-    this.setState({command: command.create()})
   }
 
   command() {
