@@ -18,7 +18,7 @@ export default (props) => (
       <option value="boolean">boolean</option>
       <option value="references">references</option>
     </select>
-    <button type="button" className="plus btn btn-default" onClick={(e) => props.plus(e, props.entity)}>+</button>
+    <button type="button" className="plus btn btn-default" onClick={(e) => props.plus(props.entity)}>+</button>
     <button type="button" className="minous btn btn-default" onClick={(e) => { props.minous(props.entity) }}>-</button>
   </li>
 );

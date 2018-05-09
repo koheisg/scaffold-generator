@@ -55,9 +55,10 @@ export default class Initialize extends Component {
     this.setState({entities: this.state.entities.filter(el => el !== name)});
   }
 
-  plus(e) {
+  plus(entity) {
     const prev = this.state.entities;
-    prev.push({ name: 'name', type: 'string' });
+    const index = prev.indexOf(entity);
+    prev.splice(index + 1, 0, { name: 'name', type: 'string' });
     this.setState({entities: prev});
   }
 
