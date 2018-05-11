@@ -2,7 +2,7 @@ import React, { Component  } from 'react';
 import ReactDOM from 'react-dom';
 import Entities from './entities.jsx'
 
-export default class Initialize extends Component {
+export default class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
