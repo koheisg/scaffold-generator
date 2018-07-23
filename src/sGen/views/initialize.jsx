@@ -87,48 +87,58 @@ export default class Initialize extends Component {
         <div>
           <form>
             <div>
-              <label htmlFor="which_rails">which rails</label>
-              <div>
-                <select name="name" id="which_rails" onChange={(e) => this.whichRails(e)} value={this.state.whichRails}>
-                  <option value="rails">rails</option>
-                  <option value="bin/rails">bin/rails</option>
-                  <option value="bin/bundle exec rails">bin/bundle exec rails</option>
-                </select>
-              </div>
+              <label>
+                which rails
+                <div>
+                  <select name="name" onChange={(e) => this.whichRails(e)} value={this.state.whichRails}>
+                    <option value="rails">rails</option>
+                    <option value="bin/rails">bin/rails</option>
+                    <option value="bin/bundle exec rails">bin/bundle exec rails</option>
+                  </select>
+                </div>
+              </label>
             </div>
 
             <div>
-              <label htmlFor="method">method</label>
-              <div>
-                <select name="name" id="method" onChange={(e) => this.whichMethod(e)} value={this.state.whichMethod}>
-                  <option value="g">generate</option>
-                  <option value="d">destroy</option>
-                </select>
-              </div>
+              <label>
+                method
+                <div>
+                  <select name="name" onChange={(e) => this.whichMethod(e)} value={this.state.whichMethod}>
+                    <option value="g">generate</option>
+                    <option value="d">destroy</option>
+                  </select>
+                </div>
+              </label>
             </div>
 
             <div>
-              <label htmlFor="argument">command</label>
-              <div>
-                <select name="name" id="argument" onChange={(e) => this.whichCommand(e)} value={this.state.whichCommand}>
-                  <option value="model">model</option>
-                  <option value="scaffold">scaffold</option>
-                </select>
-              </div>
+              <label>
+                command
+                <div>
+                  <select name="name" onChange={(e) => this.whichCommand(e)} value={this.state.whichCommand}>
+                    <option value="model">model</option>
+                    <option value="scaffold">scaffold</option>
+                  </select>
+                </div>
+              </label>
             </div>
 
             <div>
-              <label htmlFor="model_name">model</label>
-              <div>
-                <input id="model_name" type="text" onChange={(e) => this.modelName(e)} value={this.state.modelName} />
-              </div>
+              <label>
+                model
+                <div>
+                  <input type="text" onChange={(e) => this.modelName(e)} value={this.state.modelName} />
+                </div>
+              </label>
             </div>
 
             <div>
-              <label>field</label>
-              <div>
-                <Entities entities={this.state.entities} minous={this.minous} plus={this.plus} changeName={this.changeName} changeType={this.changeType} />
-              </div>
+              <label>
+                field
+                <div>
+                  <Entities entities={this.state.entities} minous={this.minous} plus={this.plus} changeName={this.changeName} changeType={this.changeType} />
+                </div>
+              </label>
             </div>
           </form>
         </div>
