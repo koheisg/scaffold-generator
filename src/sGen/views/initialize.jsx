@@ -14,7 +14,6 @@ export default class Initialize extends Component {
     }
     this.minous = this.minous.bind(this);
     this.plus = this.plus.bind(this);
-    this.write = this.write.bind(this);
     this.changeName = this.changeName.bind(this);
     this.changeType = this.changeType.bind(this);
   }
@@ -33,9 +32,6 @@ export default class Initialize extends Component {
 
   modelName(e) {
     this.setState({modelName: e.target.value})
-  }
-
-  write() {
   }
 
   command() {
@@ -131,13 +127,13 @@ export default class Initialize extends Component {
             <div className="form-group">
               <label className="col-sm-2 control-label">field</label>
               <div className="col-sm-10">
-                <Entities entities={this.state.entities} minous={this.minous} plus={this.plus} changeName={this.changeName} changeType={this.changeType} write={this.write} />
+                <Entities entities={this.state.entities} minous={this.minous} plus={this.plus} changeName={this.changeName} changeType={this.changeType} />
               </div>
             </div>
           </form>
         </div>
         <div className="col-md-4">
-          <textarea id="result" className="form-control" rows="3" onChange={this.write} value={this.command()}></textarea>
+          <textarea id="result" className="form-control" rows="3" value={this.command()}></textarea>
         </div>
       </div>
     );
