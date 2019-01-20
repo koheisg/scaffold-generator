@@ -1,4 +1,4 @@
-import React, { Component  } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Entities from './entities.jsx'
 import ForkMeGitHub from './fork_me_github.jsx'
