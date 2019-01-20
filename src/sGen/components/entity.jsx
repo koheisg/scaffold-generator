@@ -19,6 +19,6 @@ export default (props) => (
       <option value="references">references</option>
     </select>
     <button type="button" onClick={(e) => props.plus(props.entity)}>+</button>
-    <button type="button" onClick={(e) => { props.minous(props.entity) }}>-</button>
+    <button type="button" onClick={(e) => props.minous(props.entity)}>-</button>
   </li>
 );
