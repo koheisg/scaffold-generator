@@ -6,8 +6,8 @@
   "dependencies": {
     "babel-preset-react": "^6.24.1",
     "eslint": "^2.10.2",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react": "@next",
+    "react-dom": "@next"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
