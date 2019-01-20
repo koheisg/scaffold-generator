@@ -6,7 +6,7 @@ export default (props) => (
     <label>
       model
       <div>
-        <input type="text" onChange={(e) => props.onInputModelName(e)} />
+        <input type="text" value={props.name} onChange={(e) => props.onInputModelName(e)} />
       </div>
     </label>
   </div>
