@@ -2,16 +2,18 @@ import React, { Component  } from 'react';
 import ReactDOM from 'react-dom';
 import Entities from './entities.jsx'
 
+const initialState = {
+  whichRails: 'rails',
+  whichMethod: 'generate',
+  whichCommand: 'model',
+  modelName: 'users',
+  entities: [{ name: 'name', type: 'string' }],
+}
+
 export default class Container extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      whichRails: 'rails',
-      whichMethod: 'generate',
-      whichCommand: 'model',
-      modelName: 'users',
-      entities: [{ name: 'name', type: 'string' }],
-    }
+    this.state = initialState
     this.minous = this.minous.bind(this);
     this.plus = this.plus.bind(this);
     this.changeName = this.changeName.bind(this);
