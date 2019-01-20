@@ -15,7 +15,7 @@ const initialState = {
   whichMethod: 'generate',
   whichCommand: 'model',
   modelName: 'users',
-  entities: [{ name: 'name', type: 'string' }],
+  entities: [{ name: 'name', type: 'string', index: '' }],
 }
 
 export default class Container extends Component {
@@ -26,6 +26,7 @@ export default class Container extends Component {
     this.plus = this.plus.bind(this);
     this.changeName = this.changeName.bind(this);
     this.changeType = this.changeType.bind(this);
+    this.changeIndex = this.changeIndex.bind(this);
     this.onSelectWhichRails = this.onSelectWhichRails.bind(this);
     this.onSelectWhichMethod = this.onSelectWhichMethod.bind(this);
     this.onSelectWhichCommand = this.onSelectWhichCommand.bind(this);
@@ -55,7 +56,8 @@ export default class Container extends Component {
 
   createArgument() {
     return this.state.entities.map((entity) => {
-      return ` \\\n${entity['name']}:${entity['type']}`;
+      const index = entity['index'] === '' ? '' : `:${entity['index']}`;
+      return ` \\\n${entity['name']}:${entity['type']}${index}`;
     }).join(' ');
   }
 
@@ -90,6 +92,16 @@ export default class Container extends Component {
     this.setState({entities: entities});
   }
 
+  changeIndex(e, entity) {
+    const entities = this.state.entities.map(el => {
+      if(el === entity) {
+        el['index'] = e.target.value;
+      }
+      return el
+    });
+    this.setState({entities: entities});
+  }
+
   render() {
     return  (
       <div>
@@ -110,6 +122,7 @@ export default class Container extends Component {
                     plus={this.plus}
                     changeName={this.changeName}
                     changeType={this.changeType}
+                    changeIndex={this.changeIndex}
                     entity={entity}
                   />
                 ))

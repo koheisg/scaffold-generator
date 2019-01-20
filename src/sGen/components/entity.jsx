@@ -18,6 +18,11 @@ export default (props) => (
       <option value="boolean">boolean</option>
       <option value="references">references</option>
     </select>
+    <select name="index" onChange={(e) => props.changeIndex(e, props.entity)} value={props.entity.index}>
+      <option value=""></option>
+      <option value="index">index</option>
+      <option value="uniq">unique</option>
+    </select>
     <button type="button" onClick={(e) => props.plus(props.entity)}>+</button>
     <button type="button" onClick={(e) => props.minous(props.entity)}>-</button>
   </li>
