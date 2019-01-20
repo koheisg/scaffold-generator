@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Entities from './entities.jsx'
+import Entity from './entity.jsx'
 import ForkMeGitHub from './fork_me_github.jsx'
 import Heading from './heading.jsx'
 import SelectWhichRails from './select_which_rails.jsx'
@@ -100,14 +101,21 @@ export default class Container extends Component {
             <SelectWhichRails onSelectWhichRails={this.onSelectWhichRails} />
             <SelectWhichMethod onSelectWhichMethod={this.onSelectWhichMethod} />
             <SelectWhichCommand onSelectWhichCommand={this.onSelectWhichCommand} />
-            <ModelNameField onInputModelName={this.onInputModelName} />
-            <Entities
-              entities={this.state.entities}
-              minous={this.minous}
-              plus={this.plus}
-              changeName={this.changeName}
-              changeType={this.changeType}
-            />
+            <ModelNameField onInputModelName={this.onInputModelName} name={this.state.modelName} />
+            <Entities>
+              {
+                this.state.entities.map((entity, index) => (
+                  <Entity
+                    key={index.toString()}
+                    minous={this.minous}
+                    plus={this.plus}
+                    changeName={this.changeName}
+                    changeType={this.changeType}
+                    entity={entity}
+                  />
+                ))
+              }
+            </Entities>
           </form>
         </div>
         <ResultText resultText={this.createResultText()} />

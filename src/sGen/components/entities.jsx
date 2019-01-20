@@ -8,17 +8,7 @@ export default (props) => (
       field
       <div>
         <ul id="field">
-          {
-            props.entities.map((entity, index) => (
-              <Entity
-                key={index.toString()}
-                minous={props.minous}
-                plus={props.plus}
-                changeName={props.changeName}
-                changeType={props.changeType} entity={entity}
-              />
-            ))
-          }
+          {props.children}
         </ul>
       </div>
     </label>
