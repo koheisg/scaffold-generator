@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Entity from './entity.jsx'
 
 export default (props) => (
   <div>
