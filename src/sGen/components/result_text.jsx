@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 
 export default (props) => (
   <div>
-    <textarea id="result" defaultValue={props.resultText}></textarea>
+    <textarea id="result" readOnly value={props.resultText}></textarea>
   </div>
 )
