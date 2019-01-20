@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Container from './sGen/views/initialize.jsx';
+import Container from './sGen/views/container.jsx';
 
 ReactDOM.render(
   <Container />,
