@@ -6,7 +6,7 @@ export default (props) => (
     <label>
       command
       <div>
-        <select name="name" onChange={(e) => props.onSelectwhichCommand(e)}>
+        <select name="name" onChange={(e) => props.onSelectWhichCommand(e)}>
           <option value="model">model</option>
           <option value="scaffold">scaffold</option>
         </select>
