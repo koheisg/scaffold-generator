@@ -92,7 +92,7 @@ export default class Container extends Component {
               <label>
                 which rails
                 <div>
-                  <select name="name" onChange={(e) => this.whichRails(e)} value={this.state.whichRails}>
+                  <select name="name" onChange={(e) => this.whichRails(e)}>
                     <option value="rails">rails</option>
                     <option value="bin/rails">bin/rails</option>
                     <option value="bin/bundle exec rails">bin/bundle exec rails</option>
@@ -105,7 +105,7 @@ export default class Container extends Component {
               <label>
                 method
                 <div>
-                  <select name="name" onChange={(e) => this.whichMethod(e)} value={this.state.whichMethod}>
+                  <select name="name" onChange={(e) => this.whichMethod(e)}>
                     <option value="g">generate</option>
                     <option value="d">destroy</option>
                   </select>
@@ -117,7 +117,7 @@ export default class Container extends Component {
               <label>
                 command
                 <div>
-                  <select name="name" onChange={(e) => this.whichCommand(e)} value={this.state.whichCommand}>
+                  <select name="name" onChange={(e) => this.whichCommand(e)}>
                     <option value="model">model</option>
                     <option value="scaffold">scaffold</option>
                   </select>
@@ -129,7 +129,7 @@ export default class Container extends Component {
               <label>
                 model
                 <div>
-                  <input type="text" onChange={(e) => this.modelName(e)} value={this.state.modelName} />
+                  <input type="text" onChange={(e) => this.modelName(e)} />
                 </div>
               </label>
             </div>
