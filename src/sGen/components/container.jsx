@@ -30,7 +30,6 @@ export default class Container extends Component {
     this.onSelectWhichMethod = this.onSelectWhichMethod.bind(this);
     this.onSelectWhichCommand = this.onSelectWhichCommand.bind(this);
     this.onInputModelName = this.onInputModelName.bind(this);
-    this.createResultText = this.createResultText.bind(this);
   }
 
   onSelectWhichRails(e) {
