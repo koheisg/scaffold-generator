@@ -67,14 +67,18 @@ function reducer(state, action) {
   }
 }
 
-export default ({initialWhichRails, initialwhichMethod, initialWhichCommand, initialModelName, initialEntities}) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
+function createResultText(state) {
   const entityArgument = state.entities.map((entity) => {
     const index = entity['index'] === '' ? '' : `:${entity['index']}`;
     return ` \\\n${entity['name']}:${entity['type']}${index}`;
   }).join(' ');
-  const resultText = `${state.whichRails} ${state.whichMethod} ${state.whichCommand} ${state.modelName} ${entityArgument}`;
+
+  return `${state.whichRails} ${state.whichMethod} ${state.whichCommand} ${state.modelName} ${entityArgument}`;
+}
+
+export default () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const resultText = createResultText(state)
 
   return (
     <div>
