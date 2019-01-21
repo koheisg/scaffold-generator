@@ -6,7 +6,7 @@ export default (props) => (
     <label>
       which rails
       <div>
-        <select name="name" onChange={(e) => props.onSelectWhichRails(e)}>
+        <select name="name" onChange={(e) => props.dispatch({type: 'onSelectWhichRails', value: e.target.value})}>
           <option value="rails">rails</option>
           <option value="bin/rails">bin/rails</option>
           <option value="bin/bundle exec rails">bin/bundle exec rails</option>

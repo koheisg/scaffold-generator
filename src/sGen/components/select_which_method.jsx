@@ -6,7 +6,7 @@ export default (props) => (
     <label>
       method
       <div>
-        <select name="name" onChange={(e) => props.onSelectWhichMethod(e)}>
+        <select name="name" onChange={(e) => props.dispatch({type: 'onSelectWhichMethod', value: e.target.value})}>
           <option value="g">generate</option>
           <option value="d">destroy</option>
         </select>

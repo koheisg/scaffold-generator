@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import Entities from './entities.jsx'
 import Entity from './entity.jsx'
@@ -18,120 +18,88 @@ const initialState = {
   entities: [{ name: 'name', type: 'string', index: '' }],
 }
 
-export default class Container extends Component {
-  constructor(props) {
-    super(props);
-    this.state = initialState
-    this.minous = this.minous.bind(this);
-    this.plus = this.plus.bind(this);
-    this.changeName = this.changeName.bind(this);
-    this.changeType = this.changeType.bind(this);
-    this.changeIndex = this.changeIndex.bind(this);
-    this.onSelectWhichRails = this.onSelectWhichRails.bind(this);
-    this.onSelectWhichMethod = this.onSelectWhichMethod.bind(this);
-    this.onSelectWhichCommand = this.onSelectWhichCommand.bind(this);
-    this.onInputModelName = this.onInputModelName.bind(this);
-  }
+function reducer(state, action) {
+  switch (action.type) {
+    case 'onSelectWhichRails':
+      return Object.assign(state, {whichRails: action.value})
+    case 'onSelectWhichMethod':
+      return Object.assign(state, {whichMethod: action.value})
+    case 'onSelectWhichCommand':
+      return Object.assign(state, {whichCommand: action.value})
+    case 'onInputModelName':
+      return Object.assign(state, {modelName: action.value})
+    case 'minous':
+      return Object.assign(state, {entities: state.entities.filter(el => el !== action.entity)})
+    case 'plus':
+      const prev = state.entities;
+      const index = prev.indexOf(action.entity);
+      prev.splice(index + 1, 0, { name: 'name', type: 'string', index: '' });
+      return Object.assign(state, {entities: prev})
+    case 'changeName':
+      const changedNameEntities = state.entities.map(el => {
+        if(el === action.entity) {
+          el['name'] = action.value;
+        }
+        return el
+      });
 
-  onSelectWhichRails(e) {
-    this.setState({whichRails: e.target.value})
-  }
+      return Object.assign(state, {entities: changedNameEntities})
+    case 'changeType':
+      const changeTypeEntities = state.entities.map(el => {
+        if(el === action.entity) {
+          el['index'] = action.value;
+        }
+        return el
+      });
 
-  onSelectWhichMethod(e) {
-    this.setState({whichMethod: e.target.value})
-  }
+      return Object.assign(state, {entities: changeTypeEntities})
+    case 'changeIndex':
+      const changedIndexEntities = state.entities.map(el => {
+        if(el === action.entity) {
+          el['index'] = action.value;
+        }
+        return el
+      });
 
-  onSelectWhichCommand(e) {
-    this.setState({whichCommand: e.target.value})
+      return Object.assign(state, {entities: changedIndexEntities})
+    default:
+      return state;
   }
+}
 
-  onInputModelName(e) {
-    this.setState({modelName: e.target.value})
-  }
+export default ({initialWhichRails, initialwhichMethod, initialWhichCommand, initialModelName, initialEntities}) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  createResultText() {
-    return `${this.state.whichRails} ${this.state.whichMethod} `
-    + `${this.state.whichCommand} ${this.state.modelName} ${this.createArgument()}`;
-  }
+  const entityArgument = state.entities.map((entity) => {
+    const index = entity['index'] === '' ? '' : `:${entity['index']}`;
+    return ` \\\n${entity['name']}:${entity['type']}${index}`;
+  }).join(' ');
+  const resultText = `${state.whichRails} ${state.whichMethod} ${state.whichCommand} ${state.modelName} ${entityArgument}`;
 
-  createArgument() {
-    return this.state.entities.map((entity) => {
-      const index = entity['index'] === '' ? '' : `:${entity['index']}`;
-      return ` \\\n${entity['name']}:${entity['type']}${index}`;
-    }).join(' ');
-  }
-
-  minous(name) {
-    this.setState({entities: this.state.entities.filter(el => el !== name)});
-  }
-
-  plus(entity) {
-    const prev = this.state.entities;
-    const index = prev.indexOf(entity);
-    prev.splice(index + 1, 0, { name: 'name', type: 'string' });
-    this.setState({entities: prev});
-  }
-
-  changeName(e, entity) {
-    const entities = this.state.entities.map(el => {
-      if(el === entity) {
-        el['name'] = e.target.value;
-      }
-      return el
-    });
-    this.setState({entities: entities});
-  }
-
-  changeType(e, entity) {
-    const entities = this.state.entities.map(el => {
-      if(el === entity) {
-        el['type'] = e.target.value;
-      }
-      return el
-    });
-    this.setState({entities: entities});
-  }
-
-  changeIndex(e, entity) {
-    const entities = this.state.entities.map(el => {
-      if(el === entity) {
-        el['index'] = e.target.value;
-      }
-      return el
-    });
-    this.setState({entities: entities});
-  }
-
-  render() {
-    return  (
+  return (
+    <div>
+      <ForkMeGitHub />
+      <Heading />
       <div>
-        <ForkMeGitHub />
-        <Heading />
-        <div>
-          <form>
-            <SelectWhichRails onSelectWhichRails={this.onSelectWhichRails} />
-            <SelectWhichMethod onSelectWhichMethod={this.onSelectWhichMethod} />
-            <SelectWhichCommand onSelectWhichCommand={this.onSelectWhichCommand} />
-            <ModelNameField onInputModelName={this.onInputModelName} name={this.state.modelName} />
-            <Entities>
-              {
-                this.state.entities.map((entity, index) => (
-                  <Entity
-                    key={index.toString()}
-                    minous={this.minous}
-                    plus={this.plus}
-                    changeName={this.changeName}
-                    changeType={this.changeType}
-                    changeIndex={this.changeIndex}
-                    entity={entity}
-                  />
-                ))
-              }
-            </Entities>
-          </form>
-        </div>
-        <ResultText resultText={this.createResultText()} />
+        <form>
+          <SelectWhichRails dispatch={dispatch} />
+          <SelectWhichMethod dispatch={dispatch} />
+          <SelectWhichCommand dispatch={dispatch} />
+          <ModelNameField dispatch={dispatch} name={state.modelName} />
+          <Entities>
+            {
+              state.entities.map((entity, index) => (
+                <Entity
+                  dispatch={dispatch}
+                  key={index.toString()}
+                  entity={entity}
+                />
+              ))
+            }
+          </Entities>
+        </form>
       </div>
-    );
-  }
+      <ResultText resultText={resultText} />
+    </div>
+  )
 }
