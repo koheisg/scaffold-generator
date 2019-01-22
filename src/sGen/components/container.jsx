@@ -9,6 +9,7 @@ import SelectWhichMethod from './select_which_method.jsx'
 import SelectWhichCommand from './select_which_command.jsx'
 import ModelNameField from './model_name_field.jsx'
 import ResultText from './result_text.jsx'
+import {changeNameEntities, changeTypeEntities, changeIndexEntities, plus} from '../stores/entities_store'
 
 const initialState = {
   whichRails: 'rails',
@@ -31,37 +32,13 @@ function reducer(state, action) {
     case 'minous':
       return Object.assign(state, {entities: state.entities.filter(el => el !== action.entity)})
     case 'plus':
-      const prev = state.entities;
-      const index = prev.indexOf(action.entity);
-      prev.splice(index + 1, 0, { name: 'name', type: 'string', index: '' });
-      return Object.assign(state, {entities: prev})
+      return Object.assign(state, {entities: plus(state, action)})
     case 'changeName':
-      const changedNameEntities = state.entities.map(el => {
-        if(el === action.entity) {
-          el['name'] = action.value;
-        }
-        return el
-      });
-
-      return Object.assign(state, {entities: changedNameEntities})
+      return Object.assign(state, {entities: changeNameEntities(state, action)})
     case 'changeType':
-      const changeTypeEntities = state.entities.map(el => {
-        if(el === action.entity) {
-          el['index'] = action.value;
-        }
-        return el
-      });
-
-      return Object.assign(state, {entities: changeTypeEntities})
+      return Object.assign(state, {entities: changeTypeEntities(state, action)})
     case 'changeIndex':
-      const changedIndexEntities = state.entities.map(el => {
-        if(el === action.entity) {
-          el['index'] = action.value;
-        }
-        return el
-      });
-
-      return Object.assign(state, {entities: changedIndexEntities})
+      return Object.assign(state, {entities: changeIndexEntities(state, action)})
     default:
       return state;
   }
