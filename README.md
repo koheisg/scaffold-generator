@@ -7,7 +7,7 @@ This is generator of scaffold command for Ruby on Rails.
 
 ## How To Use
 
-https://jovial-jackson-704bf0.netlify.com/
+https://scaffold-generator.netlify.com/
 
 ## How To Build & Develop
 
